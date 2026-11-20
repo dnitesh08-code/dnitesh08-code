@@ -157,3 +157,24 @@
  body:not(.proof-page) .header nav a[href="#projects"]{display:none}
  body:not(.proof-page) .header nav{gap:13px}
 }
+
+/* Verified launch impact and additional technical work */
+.proof-page .impact-strip{display:grid;grid-template-columns:.85fr .85fr 1.3fr;gap:0;margin-top:38px;border:1px solid #53664b;background:linear-gradient(120deg,#273527,#1b2a20);}
+.proof-page .impact-strip>div{padding:25px 27px;}
+.proof-page .impact-strip>div+div{border-left:1px solid #4a5c45;}
+.proof-page .impact-strip .eyebrow{color:#aebfa7;font-size:10px;}
+.proof-page .impact-strip strong{display:block;font-family:'Manrope',Arial,sans-serif;line-height:1.12;font-size:clamp(36px,4vw,61px);letter-spacing:-.06em;color:#d5fb79;margin:19px 0 8px;}
+.proof-page .impact-strip span:not(.eyebrow){font-size:13px;color:#d7e4d0;}
+.proof-page .impact-context p{font-size:14px;color:#dce7d6;line-height:1.7;margin-top:16px;}
+.proof-page .impact-context a{display:inline-block;font-size:12px;font-weight:650;color:#d5fb79;margin-top:16px;border-bottom:1px solid #d5fb79;padding-bottom:4px;}
+.proof-page .project-aside{border-left:3px solid #d5fb79;margin-top:31px;padding:12px 0 12px 24px;}
+.proof-page .project-aside .eyebrow{color:#d5fb79;}
+.proof-page .project-aside p{max-width:800px;font-size:15px;color:#c4d1bf;line-height:1.8;margin-top:13px;}
+.proof-page .mini-builds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.proof-page .mini-builds article{background:#223025;border:1px solid #465744;border-radius:9px;min-height:315px;padding:28px;display:flex;flex-direction:column;}
+.proof-page .mini-builds .eyebrow{color:#d5fb79;}
+.proof-page .mini-builds h3{font-size:clamp(22px,2.6vw,31px);line-height:1.2;margin:36px 0 16px;}
+.proof-page .mini-builds p{font-size:14px;color:#bdcbb8;line-height:1.8;}
+.proof-page .mini-builds .build-status{border-top:1px solid #465744;font-size:11px;color:#a7b9a3;margin-top:auto;padding-top:23px;padding-bottom:0;line-height:1.6;}
+@media(max-width:850px){.proof-page .impact-strip{grid-template-columns:1fr 1fr;}.proof-page .impact-context{grid-column:1/-1;border-left:0!important;border-top:1px solid #4a5c45;}.proof-page .mini-builds{grid-template-columns:1fr;}.proof-page .mini-builds article{min-height:240px;}.proof-page .mini-builds h3{margin:22px 0 12px;}}
+@media(max-width:500px){.proof-page .impact-strip>div{padding:18px;}.proof-page .impact-strip strong{font-size:36px;}.proof-page .impact-strip .eyebrow{font-size:9px;}}
