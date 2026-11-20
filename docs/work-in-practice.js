@@ -184,7 +184,10 @@
           track.title=person+" is available but not scheduled on "+day;
         }
         cell.append(track);
-        const detail=node("span","sr-only",data.start!==undefined?person+" "+day+" scheduled "+data.start+":00 to "+data.end+":00; available "+data.available[0]+":00 to "+data.available[1]+":00:person+" "+day+" available "+data.available[0]+":00 to "+data.available[1]+":00; not scheduled");
+        const detailText = data.start !== undefined
+          ? person + " " + day + " scheduled " + data.start + ":00 to " + data.end + ":00; available " + data.available[0] + ":00 to " + data.available[1] + ":00"
+          : person + " " + day + " available " + data.available[0] + ":00 to " + data.available[1] + ":00; not scheduled";
+        const detail=node("span","sr-only",detailText);
         cell.append(detail);
         grid.append(cell);
       });
