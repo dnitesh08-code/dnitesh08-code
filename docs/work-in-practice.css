@@ -228,3 +228,5 @@
 .proof-page .approval-demo .demo-run{width:auto;flex:0 0 auto;margin:0}
 @media(max-width:900px){.proof-page .workflow-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.proof-page .schedule-showcase,.proof-page .linkedin-showcase{padding:20px 15px;margin-top:36px}.proof-page .showcase-heading{display:block}.proof-page .showcase-heading .demo-badge{display:inline-block;margin-top:15px}.proof-page .workflow-steps{grid-template-columns:1fr}.proof-page .approval-demo{display:block}.proof-page .approval-demo .demo-run{width:100%;margin-top:17px}}
+
+.proof-page .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
