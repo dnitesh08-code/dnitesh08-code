@@ -237,3 +237,30 @@
 .home-feature-links a{display:inline-flex;align-items:center;color:var(--accent);font-weight:650;font-size:14px;line-height:1.6;border-bottom:1px solid transparent;text-underline-offset:5px;transition:border-color .2s}
 .home-feature-links a:hover,.home-feature-links a:focus-visible{border-color:var(--accent)}
 @media(max-width:720px){.home-feature-links{gap:10px 18px}.home-feature-links a{font-size:13px}}
+
+/* Homepage directory: every featured project is visible and links to its deep dive. */
+.client-links{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:23px}
+.client-card .client-links .case-link{margin-top:0;padding-top:13px}
+.client-links .client-live-link{font-weight:600;font-size:13px;color:#314237;align-self:flex-start;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
+.client-links .client-live-link:hover,.client-links .client-live-link:focus-visible{text-decoration-color:currentColor}
+.automation-overview{padding-top:95px;padding-bottom:35px;scroll-margin-top:35px}
+.automation-overview .section-heading .eyebrow{color:var(--accent)}
+.automation-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.automation-card{display:flex;flex-direction:column;min-height:430px;padding:28px;border:1px solid #4e5b49;border-radius:6px;background:linear-gradient(155deg,#273226,#1d251e 68%);transition:transform .2s,border-color .2s}
+.automation-card:hover{transform:translateY(-3px);border-color:#8aa96b}
+.automation-card-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.automation-card-top .eyebrow{color:var(--accent);font-size:11px}
+.automation-icon{display:grid;place-items:center;width:43px;height:43px;border:1px solid #596b51;border-radius:50%;font-size:23px;color:var(--accent);font-family:var(--display)}
+.automation-card h3{font-size:clamp(27px,2.65vw,38px);line-height:1.15;letter-spacing:-.05em;margin:37px 0 18px;font-weight:600}
+.automation-card>p{font-size:15px;color:#b8c6b4;line-height:1.8;max-width:410px}
+.automation-card .tags{margin:23px 0 26px}
+.automation-card .tags span{font-size:11px}
+.automation-card-link{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:18px;border-top:1px solid #56644f;color:var(--accent);font-size:14px;font-weight:700}
+.automation-card-link:hover{text-decoration:underline;text-underline-offset:5px}
+.automation-card-link span{font-size:20px}
+.automation-footnote{font-size:14px;line-height:1.7;color:var(--muted);margin:23px 0 0}
+.automation-footnote a{color:var(--accent);border-bottom:1px solid transparent;font-weight:650}
+.automation-footnote a:hover{border-bottom-color:var(--accent)}
+@media(max-width:1000px){.automation-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.automation-card{min-height:390px}}
+@media(max-width:720px){.automation-overview{padding-top:65px}.automation-cards{grid-template-columns:1fr;gap:13px}.automation-card{min-height:unset;padding:24px}.automation-card h3{margin:24px 0 15px;font-size:29px}.automation-card .tags{margin:18px 0 28px}.client-links{padding-top:20px}}
+@media(prefers-reduced-motion:reduce){.automation-card{transition:none}}
