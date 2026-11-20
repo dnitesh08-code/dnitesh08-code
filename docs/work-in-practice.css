@@ -178,3 +178,53 @@
 .proof-page .mini-builds .build-status{border-top:1px solid #465744;font-size:11px;color:#a7b9a3;margin-top:auto;padding-top:23px;padding-bottom:0;line-height:1.6;}
 @media(max-width:850px){.proof-page .impact-strip{grid-template-columns:1fr 1fr;}.proof-page .impact-context{grid-column:1/-1;border-left:0!important;border-top:1px solid #4a5c45;}.proof-page .mini-builds{grid-template-columns:1fr;}.proof-page .mini-builds article{min-height:240px;}.proof-page .mini-builds h3{margin:22px 0 12px;}}
 @media(max-width:500px){.proof-page .impact-strip>div{padding:18px;}.proof-page .impact-strip strong{font-size:36px;}.proof-page .impact-strip .eyebrow{font-size:9px;}}
+
+/* Compact sample scheduling visualization and approval-first workflow */
+.proof-page .schedule-showcase,.proof-page .linkedin-showcase{margin-top:56px;padding:32px;background:#202b22;border:1px solid #4c6048;border-radius:12px;scroll-margin-top:25px}
+.proof-page .showcase-heading{display:flex;align-items:start;justify-content:space-between;gap:25px;margin-bottom:25px}
+.proof-page .showcase-heading .eyebrow{color:#d5fb79}
+.proof-page .showcase-heading h3{font-size:clamp(26px,3.5vw,41px);margin:11px 0 12px}
+.proof-page .showcase-heading p{max-width:710px;color:#bfcdbb;font-size:14px;line-height:1.75}
+.proof-page .showcase-heading .demo-badge{flex:0 0 auto}
+.proof-page .day-select{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0 0 23px;padding:0;min-width:0}
+.proof-page .day-select legend{float:none;width:100%;margin-bottom:11px;color:#d5fb79}
+.proof-page .day-select label{cursor:pointer}
+.proof-page .day-select input{position:absolute;opacity:0;width:1px;height:1px}
+.proof-page .day-select label span{display:inline-flex;align-items:center;justify-content:center;min-width:55px;border-radius:20px;padding:8px 12px;border:1px solid #5d7058;color:#c3d2bd;font-size:13px}
+.proof-page .day-select input:checked+span{border-color:#d5fb79;color:#192418;background:#d5fb79;font-weight:700}
+.proof-page .day-select input:focus-visible+span{outline:3px solid #d5fb79;outline-offset:3px}
+.proof-page .gantt-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:16px;font-size:12px;color:#bfceba}
+.proof-page .gantt-legend span{display:inline-flex;align-items:center;gap:7px}
+.proof-page .gantt-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.proof-page .legend-shift{background:#d5fb79}
+.proof-page .legend-available{background:repeating-linear-gradient(135deg,#526d4f 0 4px,#314430 4px 8px);border:1px solid #70926a}
+.proof-page .legend-off{background:#253226;border:1px solid #465945}
+.proof-page .gantt-host{overflow-x:auto;border:1px solid #485a44;border-radius:10px}
+.proof-page .gantt-grid{display:grid;grid-template-columns:minmax(145px,1.1fr) repeat(var(--day-count),minmax(180px,1fr));min-width:max-content}
+.proof-page .gantt-grid>div{min-width:0;border-bottom:1px solid #3f5140;border-right:1px solid #3f5140;padding:13px 12px}
+.proof-page .gantt-grid .gantt-head{background:#2b392d;color:#d9e8d2;font-size:12px;font-weight:700}
+.proof-page .gantt-grid .gantt-head small{display:block;color:#9eb69a;font-weight:400;margin-top:4px}
+.proof-page .gantt-grid .gantt-name{font-weight:700;font-size:13px}
+.proof-page .gantt-grid .gantt-name small{display:block;color:#98aa92;font-weight:400;font-size:11px;margin-top:4px}
+.proof-page .gantt-grid .gantt-cell{background:#1a271d}
+.proof-page .gantt-grid .gantt-track{position:relative;height:43px;border-radius:5px;background:repeating-linear-gradient(90deg,#2d3d2d 0%,#2d3d2d calc(25% - 1px),#52664e calc(25% - 1px),#52664e 25%);overflow:hidden}
+.proof-page .gantt-grid .gantt-bar{position:absolute;top:7px;height:29px;border-radius:4px;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;font-size:10px;font-weight:700;color:#132012;background:#d5fb79}
+.proof-page .gantt-grid .gantt-available{position:absolute;top:3px;height:37px;border:1px dashed #8faf7d;border-radius:4px;background:repeating-linear-gradient(135deg,rgba(113,154,101,.3) 0 5px,rgba(64,96,63,.15) 5px 10px)}
+.proof-page .gantt-grid .gantt-off{color:#8c9d88;font-size:12px;text-align:center;padding:11px 0}
+.proof-page .gantt-grid .gantt-summary{font-size:12px;color:#c1d3b9;background:#263528}
+.proof-page .gantt-grid .gantt-summary strong{color:#d5fb79;font-size:17px;display:block}
+.proof-page .gantt-empty{padding:30px;font-size:14px;color:#e2c8a9}
+.proof-page .build-link{color:#d5fb79!important;text-decoration:underline!important;text-underline-offset:4px}
+.proof-page .workflow-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;padding:0;margin:30px 0 24px;gap:11px}
+.proof-page .workflow-steps li{position:relative;background:#17231a;border:1px solid #4b6245;border-radius:8px;padding:20px}
+.proof-page .workflow-steps .flow-num{display:block;font-size:12px;letter-spacing:.12em;color:#d5fb79;margin-bottom:22px}
+.proof-page .workflow-steps strong{font-size:18px;font-family:'Manrope',Arial,sans-serif}
+.proof-page .workflow-steps p{font-size:13px;color:#b4c5af;line-height:1.7;margin-top:10px}
+.proof-page .workflow-steps .flow-approval{border-color:#d5fb79;background:#293927}
+.proof-page .approval-demo{background:#162018;border:1px solid #4c6047;border-radius:10px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.proof-page .approval-demo .eyebrow{color:#d5fb79}
+.proof-page .approval-demo p{color:#b4c5af;font-size:13px;margin:10px 0}
+.proof-page .approval-demo .approval-state{font-size:13px;font-weight:700;color:#e4d6a8}
+.proof-page .approval-demo .demo-run{width:auto;flex:0 0 auto;margin:0}
+@media(max-width:900px){.proof-page .workflow-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.proof-page .schedule-showcase,.proof-page .linkedin-showcase{padding:20px 15px;margin-top:36px}.proof-page .showcase-heading{display:block}.proof-page .showcase-heading .demo-badge{display:inline-block;margin-top:15px}.proof-page .workflow-steps{grid-template-columns:1fr}.proof-page .approval-demo{display:block}.proof-page .approval-demo .demo-run{width:100%;margin-top:17px}}
