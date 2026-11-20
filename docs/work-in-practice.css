@@ -150,3 +150,10 @@
 @media(prefers-reduced-motion:reduce) {
  .proof-page *, .proof-teaser * { scroll-behavior:auto!important; transition:none!important; }
 }
+
+/* Keep the original homepage's expanded navigation usable on narrow screens. */
+@media(max-width:480px){
+ body:not(.proof-page) .header nav a[href="#clients"],
+ body:not(.proof-page) .header nav a[href="#projects"]{display:none}
+ body:not(.proof-page) .header nav{gap:13px}
+}
