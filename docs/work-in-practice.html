@@ -155,11 +155,47 @@
           <p>Operational problem-solving, content automation and hands-on collaboration with developers.</p>
         </div>
         <div class="mini-builds">
-          <article><span class="eyebrow">Operations / self-built</span><h3>Employee scheduling dashboard</h3><p>Created a scheduling dashboard to support day-to-day restaurant operations. The work reflects translating an operational need into a usable tool, not just managing a shift.</p><span class="build-status">Internal tool · demonstration details available on request</span></article>
-          <article><span class="eyebrow">Workflow / experimentation</span><h3>Topic-specific LinkedIn posting automation</h3><p>Worked on an automated process that gathers news and updates on selected topics for LinkedIn posts. A practical exploration of content sourcing and repeatable publishing workflows.</p><span class="build-status">Workflow exploration · no performance results claimed</span></article>
+          <article><span class="eyebrow">Operations / AI-assisted build</span><h3>Google Sheets scheduling dashboard</h3><p>Used AI assistance to build a custom scheduling chart in Google Sheets. Selecting days displays a Gantt-style view of employee shifts and availability, making staffing easier to understand visually.</p><a class="build-status build-link" href="#schedule-demo">Try an illustrative Gantt view ↗</a></article>
+          <article><span class="eyebrow">Content workflow / approval-first</span><h3>LinkedIn research-to-post automation</h3><p>Built a workflow that uses RSS feeds and Perplexity to find relevant digital marketing updates, summarize them, request my approval, and then schedule approved posts on LinkedIn.</p><a class="build-status build-link" href="#linkedin-flow">See the workflow ↗</a></article>
           <article><span class="eyebrow">Collaboration / platform work</span><h3>HTML, CSS &amp; API collaboration</h3><p>At Mahindra, I worked with developers to refine HTML/CSS and coordinate site changes. I understand how APIs fit into web workflows and can collaborate effectively without claiming to be a full-time backend developer.</p><span class="build-status">Applied understanding · collaborative delivery</span></article>
         </div>
-        <p class="case-note">Additional work samples can be added with screenshots, code or walk-throughs when available.</p>
+        <section class="schedule-showcase" id="schedule-demo" aria-labelledby="schedule-title">
+          <div class="showcase-heading">
+            <div><span class="eyebrow">Google Sheets dashboard / illustrated</span><h3 id="schedule-title">See a week at a glance.</h3><p>Choose which days to display. This recreates the <em>idea</em> of my AI-assisted scheduling chart with fictional team members and shifts—not actual staff records or a live Google Sheet.</p></div>
+            <span class="demo-badge">INTERACTIVE · SAMPLE DATA</span>
+          </div>
+          <fieldset class="day-select" aria-label="Days to show in sample Gantt chart">
+            <legend class="eyebrow">Select days to display</legend>
+            <label><input type="checkbox" data-schedule-day="Mon" checked><span>Mon</span></label>
+            <label><input type="checkbox" data-schedule-day="Tue" checked><span>Tue</span></label>
+            <label><input type="checkbox" data-schedule-day="Wed"><span>Wed</span></label>
+            <label><input type="checkbox" data-schedule-day="Thu"><span>Thu</span></label>
+            <label><input type="checkbox" data-schedule-day="Fri"><span>Fri</span></label>
+            <label><input type="checkbox" data-schedule-day="Sat"><span>Sat</span></label>
+            <label><input type="checkbox" data-schedule-day="Sun"><span>Sun</span></label>
+          </fieldset>
+          <div class="gantt-legend" aria-label="Chart legend"><span><i class="legend-shift"></i> Scheduled shift</span><span><i class="legend-available"></i> Available, not scheduled</span><span><i class="legend-off"></i> Unavailable</span></div>
+          <div id="schedule-gantt" class="gantt-host" aria-live="polite" aria-atomic="true"><p>Loading example schedule…</p></div>
+          <p class="case-note">Example shift hours and availability are fictional. This is a static browser reconstruction for portfolio review and does not calculate or alter any real employee schedules.</p>
+        </section>
+        <section class="linkedin-showcase" id="linkedin-flow" aria-labelledby="linkedin-title">
+          <div class="showcase-heading">
+            <div><span class="eyebrow">Content automation / human in the loop</span><h3 id="linkedin-title">Research → review → scheduled post.</h3><p>An approval-first workflow: relevant digital marketing news comes from RSS, Perplexity helps research and summarize it, and a post is scheduled on LinkedIn <strong>only after approval.</strong></p></div>
+            <span class="demo-badge">ILLUSTRATED WORKFLOW</span>
+          </div>
+          <ol class="workflow-steps">
+            <li><span class="flow-num">01</span><strong>Discover</strong><p>Gather new digital marketing updates from relevant RSS feeds.</p></li>
+            <li><span class="flow-num">02</span><strong>Summarize</strong><p>Use Perplexity to research and summarize useful developments.</p></li>
+            <li class="flow-approval"><span class="flow-num">03</span><strong>Approve</strong><p>Review the draft and explicitly approve before anything is scheduled.</p></li>
+            <li><span class="flow-num">04</span><strong>Schedule</strong><p>Queue the approved post for publication on LinkedIn.</p></li>
+          </ol>
+          <div class="approval-demo" aria-label="Fictional example of the approval gate">
+            <div><span class="eyebrow">Example approval gate</span><p id="approval-description">A sample draft is waiting for review. No live LinkedIn account is connected.</p><span id="approval-state" class="approval-state" role="status">Draft awaiting approval</span></div>
+            <button type="button" id="approval-toggle" class="demo-run">Approve sample draft</button>
+          </div>
+          <p class="case-note">This demonstration only changes the local on-screen state. It does not retrieve current news, contact Perplexity, or schedule a real LinkedIn post. Live performance figures are not claimed.</p>
+        </section>
+        <p class="case-note">Additional screenshots or walkthroughs from the actual projects can be added when available.</p>
       </section>
     </div>
     <section class="closing wrap" aria-labelledby="closing-title">
