@@ -123,3 +123,99 @@
 
   showSelection(selected);
 })();
+
+
+/* Fictional schedule visualization: independent from the user's private Google Sheet. */
+(() => {
+  const host = document.getElementById("schedule-gantt");
+  const boxes = [...document.querySelectorAll("[data-schedule-day]")];
+  if (!host || !boxes.length) return;
+  const names = ["Alex", "Jordan", "Taylor", "Morgan"];
+  const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  const entries = {
+    Mon: [{start:9,end:15,available:[8,17]}, {start:12,end:20,available:[10,21]}, {available:[10,19]}, null],
+    Tue: [{start:8,end:14,available:[8,18]}, {available:[9,19]}, {start:14,end:21,available:[12,22]}, {start:10,end:17,available:[9,19]}],
+    Wed: [{available:[8,17]}, {start:11,end:19,available:[10,20]}, {start:9,end:15,available:[8,16]}, null],
+    Thu: [{start:9,end:16,available:[8,17]}, null, {start:12,end:20,available:[10,21]}, {available:[9,18]}],
+    Fri: [{start:10,end:18,available:[9,20]}, {start:14,end:21,available:[12,22]}, {available:[8,17]}, {start:8,end:15,available:[8,17]}],
+    Sat: [null, {start:9,end:17,available:[8,18]}, {start:13,end:21,available:[12,22]}, {available:[10,19]}],
+    Sun: [{available:[10,18]}, null, {start:10,end:16,available:[9,18]}, {start:12,end:20,available:[11,21]}]
+  };
+  const begin=8,end=22,pct=n=>((n-begin)/(end-begin))*100;
+  function node(tag,cls,content) {
+    const el=document.createElement(tag);
+    if(cls)el.className=cls;
+    if(content!==undefined)el.textContent=content;
+    return el;
+  }
+  function draw() {
+    const selected=days.filter(d=>boxes.some(b=>b.dataset.scheduleDay===d && b.checked));
+    host.replaceChildren();
+    if(!selected.length){host.append(node("p","gantt-empty","Select at least one day to view the sample schedule."));return;}
+    const grid=node("div","gantt-grid");
+    grid.style.setProperty("--day-count",String(selected.length));
+    grid.append(node("div","gantt-head","TEAM / HOURS"));
+    selected.forEach(day=>{
+      const head=node("div","gantt-head",day);
+      head.append(node("small","", "8 AM – 10 PM"));
+      grid.append(head);
+    });
+    names.forEach((person,i)=>{
+      const name=node("div","gantt-name",person);
+      name.append(node("small","", "Fictional team member"));
+      grid.append(name);
+      selected.forEach(day=>{
+        const cell=node("div","gantt-cell");
+        const data=entries[day][i];
+        if(!data){cell.append(node("div","gantt-off","Unavailable"));grid.append(cell);return;}
+        const track=node("div","gantt-track");
+        const available=node("div","gantt-available");
+        available.style.left=pct(data.available[0])+"%";
+        available.style.width=(pct(data.available[1])-pct(data.available[0]))+"%";
+        available.setAttribute("aria-label","Available from "+data.available[0]+":00 to "+data.available[1]+":00");
+        track.append(available);
+        if(data.start!==undefined){
+          const bar=node("div","gantt-bar",data.start+":00–"+data.end+":00");
+          bar.style.left=pct(data.start)+"%";
+          bar.style.width=(pct(data.end)-pct(data.start))+"%";
+          bar.title=person+" scheduled "+day+" "+data.start+":00–"+data.end+":00";
+          track.append(bar);
+        }else{
+          track.title=person+" is available but not scheduled on "+day;
+        }
+        cell.append(track);
+        const detail=node("span","sr-only",data.start!==undefined?person+" "+day+" scheduled "+data.start+":00 to "+data.end+":00; available "+data.available[0]+":00 to "+data.available[1]+":00:person+" "+day+" available "+data.available[0]+":00 to "+data.available[1]+":00; not scheduled");
+        cell.append(detail);
+        grid.append(cell);
+      });
+    });
+    grid.append(node("div","gantt-summary","TOTAL SHIFT HOURS"));
+    selected.forEach(day=>{
+      const hours=entries[day].reduce((sum,x)=>sum+(x?.start!==undefined?x.end-x.start:0),0);
+      const summary=node("div","gantt-summary");
+      summary.append(node("strong","",hours+" h"));
+      summary.append(document.createTextNode("sample coverage"));
+      grid.append(summary);
+    });
+    host.append(grid);
+  }
+  boxes.forEach(box=>box.addEventListener("change",draw));
+  draw();
+})();
+
+/* Fictional approval-gate example — no LinkedIn access or scheduling request. */
+(() => {
+  const button=document.getElementById("approval-toggle");
+  const state=document.getElementById("approval-state");
+  const description=document.getElementById("approval-description");
+  if(!button||!state||!description)return;
+  let approved=false;
+  button.addEventListener("click",()=>{
+    approved=!approved;
+    state.textContent=approved?"Sample approved → ready for scheduling":"Draft awaiting approval";
+    description.textContent=approved
+      ?"Approval recorded locally. In the real workflow, an approved post would then be scheduled on LinkedIn. Nothing was actually scheduled."
+      :"A sample draft is waiting for review. No live LinkedIn account is connected.";
+    button.textContent=approved?"Reset example":"Approve sample draft";
+  });
+})();
